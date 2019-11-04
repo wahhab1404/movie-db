@@ -1,49 +1,86 @@
-body{
-  background-color: red;
+body {
+  background: linear-gradient(132deg, #ec5218, #1665c1);
+  background-size: 400% 400%;
+  animation: BackgroundGradient 20s ease infinite;
 }
-nav{
-  font-size:5px;
+nav {
+  /* position: fixed; */
+  font-size: 5px;
   height: 1em;
   width: 100%;
   padding: 3%;
   text-align: center;
-  background-color:rgb(0,0,0);
+  background-color: #012349;
   text-decoration: none;
   display: grid;
-  grid-template-columns: 3fr 3fr 3fr 3fr 4fr 12fr 12fr;
-
-  
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 a {
-  
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 4em;
   font-weight: 900;
-  
 }
 
-h1{
+h1 {
   text-align: center;
-} 
-input { 
+}
+input {
   padding: 1%;
   margin-top: 1%;
 }
 
-.imageThumbnail{
-display: flex;
-
-
-}
-
-img{
+.imageThumbnail {
   display: flex;
-  padding: 4%;
 }
-.flexCont{
+
+img {
+  display: flex;
+  height: 90%;
+  margin-left: 1rem;
+  border-radius: 10%;
+}
+.flexCont {
   display: flex;
   overflow: scroll;
-  
-  
+  /* overflow-x: hidden; */
+  overflow-y: hidden;
+}
+button {
+  margin-top: -60em;
+  border-radius: 20%;
+  background-color: brown;
+  border: brown;
+  height: 25px;
+  width: 150px;
+}
+.container {
+  text-align: center;
+  height: 10%;
+}
+
+img:hover {
+  transform: scale(1.01);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+button:hover {
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+@keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

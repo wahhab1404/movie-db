@@ -9,9 +9,8 @@ function App() {
   return (
     <div>
       <NavBar />
-    
       <TrMovies />
-    
+
     </div>
   );
 }

@@ -6,12 +6,13 @@ class TopRated extends Component {
   constructor(props) {
     super(props);
   }
-  details = e => {
-    console.log(e.overview);
-    this.setState({
-      details: e.overview
-    });
-  };
+  // details = e => {
+  //   console.log(e.overview, "topra");
+
+  //   // this.setState({
+  //   //   details: e.overview
+  //   // });
+  // };
   render() {
     // console.log(this.props.resultTop, "top movies");
     let TopRatedM;
@@ -21,7 +22,7 @@ class TopRated extends Component {
           return (
             <div key={movie.id}>
               <img
-                onClick={() => this.details(movie)}
+                onClick={() => this.props.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
             </div>

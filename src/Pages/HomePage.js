@@ -37,22 +37,32 @@ class HomePage extends Component {
           resultTop: res.data.results,
           topDetails: res.data.results.overview
         });
-        console.log(this.state.result);
+        console.log("111111111", this.state.result);
+        console.log("222222222", res.data.results);
       })
 
       .catch(error => {
         console.log(error);
       });
   }
-
+  getDetails = e => {
+    console.log("hahahhahahhahahahaha", e);
+    this.setState({
+      details: e
+    });
+  };
   render() {
     return (
       <div>
         <TrMovies topMovies={this.state.result} />
-        <TopRated resultTop={this.state.resultTop} />
+        <TopRated
+          getDetails={this.getDetails}
+          resultTop={this.state.resultTop}
+        />
         <Details
           topRatedMoviesDetails={this.state.details}
           trendingMoviesDetails={this.state.topDetails}
+          details={this.state.details}
         />
       </div>
     );

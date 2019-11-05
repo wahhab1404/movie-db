@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
 import axios from "axios";
 import TrMovies from "../components/TrendingMovies";
 import TopRated from "../components/TopRated";
 import Details from "./Details";
+import MyFave from "./MyFave";
 
 class HomePage extends Component {
   constructor(props) {
@@ -37,8 +39,6 @@ class HomePage extends Component {
           resultTop: res.data.results,
           topDetails: res.data.results.overview
         });
-        console.log("111111111", this.state.result);
-        console.log("222222222", res.data.results);
       })
 
       .catch(error => {
@@ -46,24 +46,28 @@ class HomePage extends Component {
       });
   }
   getDetails = e => {
-    console.log("hahahhahahhahahahaha", e);
+    console.log("getDetails", e);
     this.setState({
-      details: e
+      details: e // passing state to children
     });
   };
+
   render() {
+    console.log(this.props.AddFav);
     return (
       <div>
-        <TrMovies topMovies={this.state.result} />
+        <link
+          href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
+          rel="stylesheet"
+        />
+
+        <TrMovies topMovies={this.state.result} getDetails={this.getDetails} />
         <TopRated
           getDetails={this.getDetails}
           resultTop={this.state.resultTop}
         />
-        <Details
-          topRatedMoviesDetails={this.state.details}
-          trendingMoviesDetails={this.state.topDetails}
-          details={this.state.details}
-        />
+        <Details details={this.state.details} AddFav={this.props.AddFav} />
+        <MyFave getDetails={this.getDetails} />
       </div>
     );
   }

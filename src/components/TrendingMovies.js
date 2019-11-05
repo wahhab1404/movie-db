@@ -1,24 +1,20 @@
 import React, { Component } from "react";
 
 class TrMovies extends Component {
-  details = e => {
-    console.log("Click Works", e);
-  };
   render() {
     let TopM;
     if (this.props.topMovies) {
       if (this.props.topMovies.length > 0) {
         TopM = this.props.topMovies.map(movie => {
           return (
-            <div className="trinding" key={movie.id}>
+            <div className=".container" key={movie.id}>
               <img
+                className="fade-in"
                 alt="MoviePoster"
-                onClick={() => this.details(movie)}
+                onClick={() => this.props.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-              <div className="container">
-                <button>FAV ME</button>
-              </div>
+              <div className="container"></div>
             </div>
           );
         });
@@ -28,7 +24,9 @@ class TrMovies extends Component {
     }
     return (
       <div>
-        <h1>Trending Movies This Week</h1>
+        <div>
+          <h1 className="fade-in">Trending Movie This Week </h1>
+        </div>
         <div className="flexCont">{TopM}</div>
       </div>
     );

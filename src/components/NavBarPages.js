@@ -35,16 +35,30 @@ const NavBarPages = props => {
             component={() => <HomePage AddFav={props.AddFav} />}
           />
           <Route path="/movies" component={MoviesAPI} />
-          <Route path="/tvshows" component={TvShows} />
+          <Route
+            path="/tvshows"
+            component={() => <TvShows topTv={props.topTv} />}
+          />
           <Route path="/towatch" component={ToWatch} />
           <Route
             path="/myfave"
-            component={() => <MyFave faveList={props.faves} />}
+            component={() => (
+              <MyFave
+                faveList={props.faves}
+                clearList={props.clearList}
+                onClickRm={props.onClickRm}
+              />
+            )}
           />
           <Route
             path="/details"
             component={() => (
-              <Details AddFav={props.AddFav} RemFav={this.RemFav} />
+              <Details
+                AddFav={props.AddFav}
+                RemFav={this.RemFav}
+                AddWatch={props.AddWatch}
+                watch={props.watch}
+              />
             )}
           />
         </Switch>

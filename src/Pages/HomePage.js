@@ -10,8 +10,6 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = { result: [], details: "" };
-
-    // this.state = { }
   }
   componentDidMount() {
     // Trending Movies
@@ -20,9 +18,8 @@ class HomePage extends Component {
         "https://api.themoviedb.org/3/trending/movie/day?api_key=901c934e463e9e9fa41c6d7dfac1af2b"
       )
       .then(res => {
-        // console.log('here is axios',res.data)
         this.setState({ result: res.data.results });
-        console.log(this.state.result);
+        console.log("1111111111111111111111111111111111111", this.state.result);
       })
 
       .catch(error => {
@@ -45,29 +42,40 @@ class HomePage extends Component {
         console.log(error);
       });
   }
+  // Get movie details
   getDetails = e => {
     console.log("getDetails", e);
     this.setState({
       details: e // passing state to children
     });
+    // document.querySelector(
+    //   ".details"
+    // ).style.backgroundImage = `https://image.tmdb.org/t/p/w200/${this.props.details.poster_path}`;
   };
 
   render() {
-    console.log(this.props.AddFav);
+    // to hide unused components in Home page
+    let details = null;
+    let faveDetails = null;
+    if (this.state.details) {
+      details = (
+        <div>
+          <Details details={this.state.details} AddFav={this.props.AddFav} />;
+        </div>
+      );
+    }
+    if (this.state.fave) {
+      faveDetails = <MyFave getDetails={this.getDetails} />;
+      console.log("Woorks");
+    }
     return (
       <div>
-        <link
-          href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
-          rel="stylesheet"
-        />
-
         <TrMovies topMovies={this.state.result} getDetails={this.getDetails} />
         <TopRated
           getDetails={this.getDetails}
           resultTop={this.state.resultTop}
         />
-        <Details details={this.state.details} AddFav={this.props.AddFav} />
-        <MyFave getDetails={this.getDetails} />
+        {details}
       </div>
     );
   }

@@ -9,24 +9,18 @@ class MyFave extends Component {
       details: null
     };
   }
-
-  onClickRm = e => {
-    this.props.RemFav(this.props.details);
-  };
+  // get movie detail
   getDetails = e => {
-    console.log("getDetails", e);
     this.setState({
       details: e // passing state to children
     });
   };
   render() {
     let FavM = <h1>You have NOTHING here :)...</h1>;
-    console.log("1", FavM);
-    console.info("the propsfavelist", this.props);
-
+    // Chick if array has date
     if (this.props.faveList) {
       if (this.props.faveList.length > 0) {
-        console.log("2", FavM);
+        // if array has items it will do the map function
         FavM = this.props.faveList.map(movie => {
           return (
             <div key={movie.id}>
@@ -35,6 +29,8 @@ class MyFave extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
+              <button onClick={this.onClick}>REMOVE</button>
+              {/* font link */}
               <link
                 href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
                 rel="stylesheet"
@@ -42,16 +38,11 @@ class MyFave extends Component {
             </div>
           );
         });
-
-        // this.setState({
-        //   favM2: FavM
-        // });
       } else {
         FavM = <h1>You have NOTHING here :)...</h1>;
       }
     }
-    // console.log(FaveList, "1");
-    console.log("123412341234", this.props.getDetails);
+    // Hiding unused Components
     let details = null;
     if (this.state.details) {
       details = (
@@ -60,10 +51,14 @@ class MyFave extends Component {
     }
     return (
       <div>
-        <h1>YOU ENJOYED THESE MOVIES</h1>
+        <h1>YOUR LIST</h1>
         <div className="flexCont">{FavM}</div>
         {details}
-        {/* <Details AddFave={this.props.AddFave} /> */}
+        <div className="buttCont">
+          <button onClick={() => this.props.clearList(details)}>
+            CLEAR LIST
+          </button>
+        </div>
       </div>
     );
   }

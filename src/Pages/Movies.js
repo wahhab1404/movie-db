@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MoviesAPI from "./MoviesAPI";
 
 class Movies extends Component {
   constructor(props) {
@@ -8,8 +7,7 @@ class Movies extends Component {
   //
 
   render() {
-    console.log("HELOOOOOOOOOOOOOO", this.props.nowPlay);
-    const allArr = this.props.nowPlay.map((item, key) => {
+    const nowPlayArr = this.props.nowPlay.map((item, key) => {
       return (
         <div>
           <div className="imageTitle">{item.title} </div>
@@ -23,12 +21,7 @@ class Movies extends Component {
         </div>
       );
     });
-    return (
-      <div className="flexCont">
-        {/* console.log(); */}
-        {allArr}
-      </div>
-    );
+    return <div className="flexCont">{nowPlayArr}</div>;
   }
 }
 export default Movies;

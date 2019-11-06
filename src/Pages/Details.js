@@ -1,25 +1,20 @@
 import React, { Component } from "react";
 
 class Details extends Component {
-  onClick = e => {
+  onClickADD = e => {
     this.props.AddFav(this.props.details);
   };
+  onClickWatch = e => {
+    this.props.AddWatch(this.props.details);
+  };
+
   render() {
-    // console.log(props.AddFav);
-
-    // let moviesDetails = this.props.topRatedMoviesDetail;
-    // let details = null;
-    // if (this.state.details) {
-    //   details = (
-    //     <Details details={this.state.details} AddFav={this.props.AddFav} />
-    //   );
-    // }
-
     return (
       <div className="details">
         <div className="movieTitle">
           <h1>{this.props.details.title}</h1>
-          <button onClick={this.onClick}>ADD TO FAV</button>
+          <button onClick={this.onClickADD}>ADD TO FAV</button>
+          <button onClick={this.onClick}>ADD TO WATCH</button>
         </div>
         {this.props.details.vote_average
           ? ` Vote ${this.props.details.vote_average} `

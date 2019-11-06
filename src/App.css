@@ -59,7 +59,6 @@ img {
 .flexCont {
   display: flex;
   overflow: scroll;
-  /* overflow-x: hidden; */
   overflow-y: hidden;
 }
 button {
@@ -70,6 +69,10 @@ button {
   border: brown;
   height: 25px;
   width: 150px;
+}
+.buttCont {
+  text-align: center;
+  margin: 0 auto;
 }
 .container {
   text-align: center;

@@ -33,7 +33,8 @@ class App extends Component {
   };
   /// ADD TO WATCHLIST ( still working on it )
   AddWatch = movie => {
-    const newWatch = [...this.state.faves];
+    console.log("ANa hna");
+    const newWatch = [...this.state.watch];
     const nameOfMovie = movie.id;
     let exist = false;
     if (newWatch.length != 0) {
@@ -49,6 +50,26 @@ class App extends Component {
         watch: newWatch
       });
     }
+  };
+  RemFav = movie => {
+    const newFaves = [...this.state.faves];
+    const faveID = newFaves.findIndex(fave => {
+      return fave.id === movie.id;
+    });
+    newFaves.splice(faveID, 1);
+    this.setState({
+      faves: newFaves
+    });
+  };
+  RemWatch = movie => {
+    const newWatch = [...this.state.watch];
+    const watchID = newWatch.findIndex(watch => {
+      return watch.id === movie.id;
+    });
+    newWatch.splice(watchID, 1);
+    this.setState({
+      watch: newWatch
+    });
   };
   /// Clear fave
   clearList = e => {
@@ -67,6 +88,8 @@ class App extends Component {
           watch={this.state.watch}
           onClickRm={this.onClickRm}
           clearList={this.clearList}
+          RemFav={this.RemFav}
+          RemWatch={this.RemWatch}
         />
       </div>
     );

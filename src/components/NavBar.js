@@ -12,6 +12,8 @@ const NavBar = props => {
         faves={props.faves}
         watch={props.watch}
         clearList={props.clearList}
+        RemFav={props.RemFav}
+        RemWatch={props.RemWatch}
       />
     </div>
   );

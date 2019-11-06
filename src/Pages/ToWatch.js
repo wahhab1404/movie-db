@@ -11,9 +11,6 @@ class ToWatch extends Component {
     };
   }
 
-  onClickRm = e => {
-    this.props.RemWatch(this.props.details);
-  };
   getDetails = e => {
     this.setState({
       details: e // passing state to children
@@ -22,9 +19,9 @@ class ToWatch extends Component {
   render() {
     let watch = <h1>You have nothing here :)...</h1>;
 
-    if (this.props.watchList) {
-      if (this.props.watchList.length > 0) {
-        watch = this.props.watchList.map(movie => {
+    if (this.props.watch) {
+      if (this.props.watch.length > 0) {
+        watch = this.props.watch.map(movie => {
           return (
             <div key={movie.id}>
               <div className="imageTitle">{movie.title}</div>
@@ -32,11 +29,9 @@ class ToWatch extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-
-              <link
-                href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
-                rel="stylesheet"
-              />
+              <button onClick={() => this.props.RemWatch(details)}>
+                REMOVE!
+              </button>
             </div>
           );
         });

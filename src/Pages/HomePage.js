@@ -19,7 +19,6 @@ class HomePage extends Component {
       )
       .then(res => {
         this.setState({ result: res.data.results });
-        console.log("1111111111111111111111111111111111111", this.state.result);
       })
 
       .catch(error => {
@@ -31,20 +30,16 @@ class HomePage extends Component {
         "https://api.themoviedb.org/3/movie/top_rated?api_key=901c934e463e9e9fa41c6d7dfac1af2b"
       )
       .then(res => {
-        console.log("top rated", res.data);
         this.setState({
           resultTop: res.data.results,
           topDetails: res.data.results.overview
         });
       })
 
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   }
   // Get movie details
   getDetails = e => {
-    console.log("getDetails", e);
     this.setState({
       details: e // passing state to children
     });
@@ -60,13 +55,17 @@ class HomePage extends Component {
     if (this.state.details) {
       details = (
         <div>
-          <Details details={this.state.details} AddFav={this.props.AddFav} />;
+          <Details
+            details={this.state.details}
+            AddFav={this.props.AddFav}
+            AddWatch={this.props.AddWatch}
+          />
+          ;
         </div>
       );
     }
     if (this.state.fave) {
       faveDetails = <MyFave getDetails={this.getDetails} />;
-      console.log("Woorks");
     }
     return (
       <div>

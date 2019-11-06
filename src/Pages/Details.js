@@ -14,7 +14,7 @@ class Details extends Component {
         <div className="movieTitle">
           <h1>{this.props.details.title}</h1>
           <button onClick={this.onClickADD}>ADD TO FAV</button>
-          <button onClick={this.onClick}>ADD TO WATCH</button>
+          <button onClick={this.onClickWatch}>ADD TO WATCH</button>
         </div>
         {this.props.details.vote_average
           ? ` Vote ${this.props.details.vote_average} `

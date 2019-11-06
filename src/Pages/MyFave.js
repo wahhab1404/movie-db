@@ -15,6 +15,7 @@ class MyFave extends Component {
       details: e // passing state to children
     });
   };
+
   render() {
     let FavM = <h1>You have NOTHING here :)...</h1>;
     // Chick if array has date
@@ -29,7 +30,9 @@ class MyFave extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-              <button onClick={this.onClick}>REMOVE</button>
+              <button onClick={() => this.props.clearList(details)}>
+                REMOVE!
+              </button>
               {/* font link */}
               <link
                 href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
@@ -39,7 +42,11 @@ class MyFave extends Component {
           );
         });
       } else {
-        FavM = <h1>You have NOTHING here :)...</h1>;
+        FavM = (
+          <div className="textAligne">
+            <h1>You have NOTHING here :)...</h1>
+          </div>
+        );
       }
     }
     // Hiding unused Components

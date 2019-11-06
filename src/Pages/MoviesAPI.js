@@ -47,7 +47,7 @@ class MoviesAPI extends Component {
     return (
       <div>
         <Movies nowPlay={this.state.playN} />
-        <NavBar topTv={this.state.topTv} />
+        {/* <NavBar topTv={this.state.topTv} /> */}
 
         <link
           href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"

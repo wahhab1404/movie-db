@@ -29,7 +29,7 @@ class ToWatch extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-              <button onClick={() => this.props.RemWatch(details)}>
+              <button onClick={() => this.props.RemWatch(movie)}>
                 REMOVE!
               </button>
             </div>

@@ -43,7 +43,9 @@ const NavBarPages = props => {
           />
           <Route
             path="/towatch"
-            component={() => <ToWatch watch={props.watch} />}
+            component={() => (
+              <ToWatch watch={props.watch} RemWatch={props.RemWatch} />
+            )}
           />
           <Route
             path="/myfave"

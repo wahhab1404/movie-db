@@ -4,7 +4,7 @@
 
 # Planing :
 
-- first, i mount all APIs top the App and start to the functions that handle the data appearance.
+- first, i mount all APIs to the App and start to the functions that handle the data appearance.
 - then , i start showing the details , finally i worked with listing functions.
 
 # future plans :

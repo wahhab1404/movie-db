@@ -14,7 +14,6 @@ class TrMovies extends Component {
                 onClick={() => this.props.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-              <div className="container"></div>
             </div>
           );
         });

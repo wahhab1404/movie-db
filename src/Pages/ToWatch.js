@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import HomePage from "../Pages/HomePage";
+
 import Details from "../Pages/Details";
-// IAM STILL WORKING ON THIS PAGE
+
 class ToWatch extends Component {
   constructor(props) {
     super(props);
@@ -29,9 +29,11 @@ class ToWatch extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
-              <button onClick={() => this.props.RemWatch(movie)}>
-                REMOVE!
-              </button>
+              <div className="center">
+                <button onClick={() => this.props.RemWatch(movie)}>
+                  REMOVE!
+                </button>
+              </div>
             </div>
           );
         });
@@ -48,10 +50,12 @@ class ToWatch extends Component {
     }
     return (
       <div>
-        <h1>You ara planing to watch :</h1>
+        <h1>You are planing to watch :</h1>
         <div className="flexCont">{watch}</div>
         {details}
-        <button onClick={() => this.props.clearList()}>CLEAR LIST</button>
+        <div className="center">
+          <button onClick={() => this.props.clearList()}>CLEAR LIST</button>
+        </div>
       </div>
     );
   }

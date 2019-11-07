@@ -17,9 +17,7 @@ const NavBarPages = props => {
         <Link to="/movies" className="fade-in">
           Movies
         </Link>
-        <Link to="/tvshows" className="fade-in">
-          Tv Shows
-        </Link>
+
         <Link to="/towatch" className="fade-in">
           To Watch
         </Link>

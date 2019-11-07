@@ -7,7 +7,6 @@ const NavBar = props => {
       <NavBarPages
         AddFav={props.AddFav}
         AddWatch={props.AddWatch}
-        // topTv={this.props.topTv}
         onClickRm={props.onClickRm}
         faves={props.faves}
         watch={props.watch}

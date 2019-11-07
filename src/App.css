@@ -104,6 +104,9 @@ a:hover {
   top: 25%;
   left: 25%;
 }
+.center{
+  text-align: center;
+}
 
 /* make keyframes that tell the start state and the end state of our object */
 @-webkit-keyframes fadeIn {

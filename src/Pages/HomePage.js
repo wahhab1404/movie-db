@@ -43,9 +43,6 @@ class HomePage extends Component {
     this.setState({
       details: e // passing state to children
     });
-    // document.querySelector(
-    //   ".details"
-    // ).style.backgroundImage = `https://image.tmdb.org/t/p/w200/${this.props.details.poster_path}`;
   };
 
   render() {
@@ -55,6 +52,7 @@ class HomePage extends Component {
     if (this.state.details) {
       details = (
         <div>
+          {/* Show details when there is content */}
           <Details
             details={this.state.details}
             AddFav={this.props.AddFav}
@@ -64,6 +62,7 @@ class HomePage extends Component {
         </div>
       );
     }
+    // Show Fave if there is content
     if (this.state.fave) {
       faveDetails = <MyFave getDetails={this.getDetails} />;
     }

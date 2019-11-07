@@ -30,18 +30,15 @@ class MyFave extends Component {
                 onClick={() => this.getDetails(movie)}
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               />
+              {/* add button event  */}
               <button onClick={() => this.props.clearList(details)}>
                 REMOVE!
               </button>
-              {/* font link */}
-              <link
-                href="https://fonts.googleapis.com/css?family=Staatliches&display=swap"
-                rel="stylesheet"
-              />
             </div>
           );
         });
       } else {
+        // show text when there is no contents
         FavM = (
           <div className="textAligne">
             <h1>You have NOTHING here :)...</h1>
